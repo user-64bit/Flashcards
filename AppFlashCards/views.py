@@ -4,14 +4,17 @@ from django.shortcuts import redirect, render,HttpResponse
 from AppFlashCards.models import Data
 
 # Create your views here.
-
-def index(request):
+def getdata():
     all_data = Data.objects.all()
     db_data = []
     for dt in all_data:
         temp = {'question':dt.question,'answer':dt.answer,'tag':dt.tag}
         db_data.append(temp)
-    return render(request,"index.html",{'db_data':db_data})
+    return db_data
+ 
+def index(request):
+   db_data = getdata()
+   return render(request,"index.html",{'db_data':db_data})
 
 
 def createcard(request):
@@ -24,5 +27,6 @@ def addcard(request):
         model.answer = request.POST['answer']
         model.tag = request.POST['tag']
         model.save()
-        return HttpResponse("OK let's see")
-    return HttpResponse("Didn't work")
+        db_data = getdata()
+        return redirect("/",{'db_data':db_data})
+    return HttpResponseRedirect("Unable to add to database")
