@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Card</title>
+    <link href="{{STATIC_PREFIX}}bootstrap/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+    {%block content %}
+    <form class="container col-md-6 col-md-offset-4" action="{% url 'addcard'%}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Question</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="question" placeholder="Write Question..">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Answer</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="answer" placeholder="Enter you answer"></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tag</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="tag" placeholder="Separate tag using comma(,)">
+        </div>
+          <br>
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+        </form>
+    {% endblock%}
+</body>
+</html>
