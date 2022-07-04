@@ -5,5 +5,6 @@ from . import views
 urlpatterns = [
     path('',views.index,name='index'),
     path('createcard/',views.createcard,name='createcard'),
-    path('createcard/addcard/',views.addcard,name='addcard')
+    path('createcard/addcard/',views.addcard,name='addcard'),
+    path('show/<int:id>/',views.show,name='show')
 ]

@@ -7,19 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlashCards</title>
-    <link href="{{STATIC_PREFIX}}bootstrap/css/bootstrap.css" rel="stylesheet"> 
+    <link href="{{STATIC_PREFIX}}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}customcss/card.css">
+    <style>
+      .showcard{
+          border: 2px solid red;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          width: 25%;
+          height: 25%;
+          text-align: center;
+      }
+  </style>
 </head>
 <body>
   {%csrf_token%}
-  <nav class="navbar" style="background-color: #e3f2fd;">
+  <nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand">FlashCards</a>
+      <a class="navbar-brand" style="color:white;">FlashCards</a>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </nav>
+  <hr style="color:rgb(119, 255, 119);">
   {%block content%}
   {%endblock%}
 </body>

@@ -1,0 +1,29 @@
+{%extends 'base.html'%} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards</title>
+</head>
+<body>
+    {%csrf_token%}
+    {%block content%}
+
+    {% for key in db_data %}
+    <div class="showcard">
+        <div class="question">
+            <h3>{{key.question}}</h3>
+        </div>
+        <div class="answer">
+            <p>{{key.answer}}</p>
+        </div>
+        <div class="tag">
+            <small>{{key.tag}}</small>
+        </div>
+    </div>
+    {%endfor%}
+    {%endblock%}
+</body>
+</html>

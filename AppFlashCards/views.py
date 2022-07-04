@@ -8,7 +8,7 @@ def getdata():
     all_data = Data.objects.all()
     db_data = []
     for dt in all_data:
-        temp = {'question':dt.question,'answer':dt.answer,'tag':dt.tag}
+        temp = {'id':dt.id,'question':dt.question,'answer':dt.answer,'tag':dt.tag}
         db_data.append(temp)
     return db_data
  
@@ -30,3 +30,10 @@ def addcard(request):
         db_data = getdata()
         return redirect("/",{'db_data':db_data})
     return HttpResponseRedirect("Unable to add to database")
+
+def show(request,id):
+    db_data = getdata()
+    for d in db_data:
+        if d['id'] == id:
+            return render(request,'show.html',{'db_data':[d]})
+    return HttpResponse("Unable to show")
