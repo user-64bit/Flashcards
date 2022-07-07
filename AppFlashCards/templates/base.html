@@ -9,6 +9,7 @@
     <title>FlashCards</title>
     <link href="{{STATIC_PREFIX}}bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="{{STATIC_PREFIX}}customcss/card.css">
+    <!-- <link rel="stylesheet" href="memorize.js"> -->
     <style>
       .showcard{
           border: 2px solid red;
@@ -24,16 +25,38 @@
 </head>
 <body>
   {%csrf_token%}
-  <nav class="navbar">
+  <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" style="color:white;">FlashCards</a>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <a class="navbar-brand" href="/">FlashCards</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{%url 'memorize'%}">Memorize</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <hr style="color:rgb(119, 255, 119);">
+  <hr style="color:rgb(44, 42, 42);">
   {%block content%}
   {%endblock%}
+
+  <script>
+    function reveal(){
+      var elms = document.getElementsByClassName("answer");
+      Array.from(elms).forEach((x) => {
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      })
+    }
+  </script>
 </body>

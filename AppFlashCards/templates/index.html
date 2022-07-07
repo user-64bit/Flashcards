@@ -15,19 +15,18 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <div class="col">
         <div class="card h-100" style="background-color: rgb(44, 42, 42);border:1px solid rgb(143, 253, 143);">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <a class="btn btn-primary" href="{% url 'createcard'%}">Add</a>
+          <div class="card-body" style="    margin: auto;
+    padding-top: 52px;">
+            <a class="btn btn-primary" style="display: block; margin: 0 auto;" href="{% url 'createcard'%}">Add</a>
           </div>
         </div>
       </div>
       {% for key in db_data %}
       <div class="col">
           <div class="card h-100" style="background-color: rgb(44, 42, 42);border:1px solid rgb(143, 253, 143);">
-            <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title" style="text-align:center;">{{key.question}}</h5>
-              <p class="card-text" style="text-align:center;">{{key.tag}}</p>
+              <p class="card-text" style="text-align:center;color:rgb(255, 139, 110)">{{key.tag}}</p>
               <a href="{%url 'show' id=key.id %}" class="btn btn-primary">Show</a>
             </div>
           </div>

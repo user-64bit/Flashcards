@@ -1,0 +1,26 @@
+{%extends 'base.html'%} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards</title>
+    <!-- <link href="memorize.js"> -->
+    <!-- <script src="memorize.js"></script> -->
+</head>
+<body>
+    {%csrf_token%}
+    {%block content%}
+
+    <h1>Memorize time</h1>
+    <div class="card" style="border:2px solid red;color:black">
+        <div class="question">{{db_data.question}}</div>
+        <p class="answer" style="display:none;">{{db_data.answer}}</p>
+        <button onclick="reveal()">Reveal</button>
+        <a href="{% url 'memorize'%}">next</a>
+    </div>
+    {%endblock%}
+
+</body>
+</html>
