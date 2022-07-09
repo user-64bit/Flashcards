@@ -12,6 +12,8 @@
     <!-- <link rel="stylesheet" href="memorize.js"> -->
     <style>
       .showcard{
+        border: 2px solid #00acff;
+        border-radius: 30px;
         position: absolute;
         padding-top: 1%;
         left: 50%;
@@ -20,6 +22,48 @@
         width: 50%;
         height: 66%;
         text-align: center;
+      }
+      .memorizecard{
+        border: 2px solid #00acff;
+        border-radius: 30px;
+        position: absolute;
+        padding-top: 1%;
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 66%;
+        text-align: center;
+      }
+      .showcard:hover{
+        filter: drop-shadow(0 0 0.75rem crimson);
+      }
+      .memorizecard:hover{
+        filter: drop-shadow(0 0 0.75rem crimson);
+      }
+      .allcards:hover{
+        filter: drop-shadow(0 0 0.75rem crimson);
+      }
+      .memorize-title{
+        --c: #1095c1; /* the color */
+        --s: .15em;
+        width: 25%;
+        margin: auto;
+        line-height:1.1em;
+        padding-bottom: calc(2.1*var(--s));
+        background: 
+          conic-gradient(from 135deg at top,var(--c) 90deg,#0000 0) 
+            left 0 bottom var(--s)/calc(2*var(--s)) var(--s) repeat-x,
+          conic-gradient(from -45deg at bottom,var(--c) 90deg,#0000 0) 
+            left var(--s) bottom 0/calc(2*var(--s)) var(--s) repeat-x;
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0) 0/var(--_p,0%) padding-box no-repeat;
+        transition: .5s;
+      }
+      .memorize-title:hover {
+        --_p: 100%;
+        color: var(--c);
       }
   </style>
 </head>

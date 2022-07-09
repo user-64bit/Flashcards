@@ -22,12 +22,14 @@
         </div>
       </div>
       {% for key in db_data %}
-      <div class="col">
+      <div class="col allcards">
           <div class="card h-100" style="background-color: rgb(44, 42, 42);border:1px solid rgb(143, 253, 143);">
             <div class="card-body">
               <h5 class="card-title" style="text-align:center;">{{key.question}}</h5>
               <p class="card-text" style="text-align:center;color:rgb(255, 139, 110)">{{key.tag}}</p>
-              <a href="{%url 'show' id=key.id %}" class="btn btn-primary">Expand</a>
+              <a href="{%url 'show' id=key.id %}" class="btn btn-primary" style="position: absolute;
+              top:58%;
+              right: 4%;">Expand</a>
             </div>
           </div>
         </div>

@@ -13,8 +13,8 @@
     {%csrf_token%}
     {%block content%}
 
-    <h1>Memorize time</h1>
-    <div class="showcard" style="border:2px solid red;">
+    <h1 class="memorize-title" style="text-align: center;">Memorize time</h1>
+    <div class="memorizecard">
         <div class="question">
             <h3>{{db_data.question}}</h3>
         </div>
@@ -29,13 +29,17 @@
         <small>{{key.tag}}</small>
         </div>
         <button onclick="reveal()" style="position: absolute;
+        background-color: #02f79c;
+        border-radius: 8px;
         top: 88%;
-        left: 48%;">Reveal</button>
+        left: 48%;
+        height: 7%;
+        width: 9%;">Reveal</button>
         <a href="{% url 'memorize'%}" class="btn btn-primary" style="position: absolute;
         top: 88%;
         left: 90%;
         background-color: cyan;
-        width: 7%;
+        width: 8%;
         border-radius: 10px;
         text-decoration: none;
         color: black;">Next</a>
