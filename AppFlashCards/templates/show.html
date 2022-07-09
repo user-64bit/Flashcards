@@ -16,13 +16,18 @@
         <div class="question">
             <h3>{{key.question}}</h3>
         </div>
-        <div class="answer">
-            <p>{{key.answer}}</p>
+        <div class="answer" style="margin-top: 50px;">
+            <pre><code>{{ key.answer}}</code></pre>
         </div>
-        <div class="tag">
+        <div class="tag" style="background-color: burlywood;
+        width: 8%;
+        margin: auto;
+        border-radius: 16px;">
             <small>{{key.tag}}</small>
         </div>
-        <a href="{%url 'delete' id=key.id %}" class="btn btn-primary">Delete</a>
+        <a href="{%url 'delete' id=key.id %}" class="btn btn-primary" style="position: absolute;
+        top: 88%;
+        left: 46%;">Delete</a>
     </div>
     {%endfor%}
     {%endblock%}

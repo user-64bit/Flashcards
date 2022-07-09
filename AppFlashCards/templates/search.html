@@ -1,0 +1,30 @@
+{%extends 'base.html'%} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards</title>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}customcss/index.css">
+
+</head>
+<body>
+    {%csrf_token%}
+ 
+    {%block content%}
+        {% for key in db_data %}
+        <div class="col">
+            <div class="card h-100" style="background-color: rgb(44, 42, 42);border:1px solid rgb(143, 253, 143);">
+              <div class="card-body">
+                <h5 class="card-title" style="text-align:center;">{{key.question}}</h5>
+                <p class="card-text" style="text-align:center;color:rgb(255, 139, 110)">{{key.tag}}</p>
+                <a href="{%url 'show' id=key.id %}" class="btn btn-primary">Expand</a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+    {%endblock%}
+</body>
+</html>

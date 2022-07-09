@@ -1,7 +1,8 @@
-from dataclasses import dataclass
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render,HttpResponse
 import random
+
+from django.urls import reverse
 
 from AppFlashCards.models import Data
 
@@ -27,7 +28,7 @@ def addcard(request):
         model = Data()
         model.question = request.POST['question']
         model.answer = request.POST['answer']
-        model.tag = request.POST['tag']
+        model.tag = request.POST['tag'].lower()
         model.save()
         db_data = getdata()
         return redirect("/",{'db_data':db_data})
@@ -55,10 +56,16 @@ def delete(request,id):
             task = Data.objects.get(id=id)
             task.delete()
             db_data = getdata()
-            return render(request,'index.html',{'db_data':db_data})
+            return HttpResponseRedirect(reverse('index'))
     return HttpResponse("Unable to delete")
-from django.template import RequestContext
 
 
 def handler404(request,exception):
     return render(request,'404.html')
+
+def search(request):
+    q = request.GET['search-text']
+    search_data = Data.objects.filter(tag=q.lower())
+    if len(search_data)==0:
+        return HttpResponse("There is not data available for searched item")
+    return render(request,'search.html',{'db_data':search_data})

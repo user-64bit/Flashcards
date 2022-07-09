@@ -12,14 +12,14 @@
     <!-- <link rel="stylesheet" href="memorize.js"> -->
     <style>
       .showcard{
-          border: 2px solid red;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 25%;
-          height: 25%;
-          text-align: center;
+        position: absolute;
+        padding-top: 1%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%;
+        height: 66%;
+        text-align: center;
       }
   </style>
 </head>
@@ -41,6 +41,10 @@
           </li>
         </ul>
       </div>
+      <form class="d-flex" role="search" method="get" action="{%url 'search'%}">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search-text">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </nav>
   <hr style="color:rgb(44, 42, 42);">

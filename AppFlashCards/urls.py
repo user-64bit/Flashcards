@@ -8,6 +8,7 @@ urlpatterns = [
     path('createcard/addcard/',views.addcard,name='addcard'),
     path('show/<int:id>/',views.show,name='show'),
     path('delete/<int:id>',views.delete,name='delete'),
-    path('memorize/',views.memorize,name='memorize')
+    path('memorize/',views.memorize,name='memorize'),
+    path('?',views.search,name='search'),
 ]
 handler404 = 'AppFlashCards.views.handler404'

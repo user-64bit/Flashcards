@@ -14,12 +14,38 @@
     {%block content%}
 
     <h1>Memorize time</h1>
-    <div class="card" style="border:2px solid red;color:black">
-        <div class="question">{{db_data.question}}</div>
-        <p class="answer" style="display:none;">{{db_data.answer}}</p>
-        <button onclick="reveal()">Reveal</button>
-        <a href="{% url 'memorize'%}">next</a>
+    <div class="showcard" style="border:2px solid red;">
+        <div class="question">
+            <h3>{{db_data.question}}</h3>
+        </div>
+        <div class="answer" style="display:none;margin-top: 50px;">
+            <pre><code>{{db_data.answer}}</code></pre>
+        </div>
+        
+        <div class="tag" style="background-color: burlywood;
+        width: 8%;
+        margin: auto;
+        border-radius: 16px;">
+        <small>{{key.tag}}</small>
+        </div>
+        <button onclick="reveal()" style="position: absolute;
+        top: 88%;
+        left: 48%;">Reveal</button>
+        <a href="{% url 'memorize'%}" class="btn btn-primary" style="position: absolute;
+        top: 88%;
+        left: 90%;
+        background-color: cyan;
+        width: 7%;
+        border-radius: 10px;
+        text-decoration: none;
+        color: black;">Next</a>
     </div>
+    <!-- <div class="card" style="border:2px solid red;color:black">
+    <div class="question">{{db_data.question}}</div>
+    <p class="answer" style="display:none;">{{db_data.answer}}</p>
+    
+    <a href="{% url 'memorize'%}">next</a>
+    </div> -->
     {%endblock%}
 
 </body>
