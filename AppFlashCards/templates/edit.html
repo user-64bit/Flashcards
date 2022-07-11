@@ -15,29 +15,29 @@
 <body>
 
     {%block content %}
-    <form style="margin-top:50px;border:1px dotted rgb(150, 255, 150);padding:25px;border-radius:8px;" class="container col-md-6 col-md-offset-4" action="{% url 'addcard'%}" method="post">
+    <form style="margin-top:50px;border:1px dotted rgb(150, 255, 150);padding:25px;border-radius:8px;" class="container col-md-6 col-md-offset-4" action="{% url 'edit'%}">
         {% csrf_token %}
         <h2 style="display:block;text-align:center;text-decoration: underline;margin-bottom:10px;">Creat New Card</h2>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">{{question}}</label>
+            <label for="exampleFormControlInput1" class="form-label">Question</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="question" placeholder="Write Question.." style="background-color:white;color:black;border-radius:7px">
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">{{answer}}</label>
+            <label for="exampleFormControlTextarea1" class="form-label">Answer</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="answer" placeholder="Enter you answer"></textarea>
         </div>
         
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">{{tag}}</label>
+            <label for="exampleFormControlInput1" class="form-label">Tag</label>
             <input type="text" class="form-control" id="exampleFormControlInput1" name="tag" placeholder="Separate tag using comma(,)" style="background-color:white;color:black;border-radius:7px">
         </div>
         <label class="container">Code
             <input type="checkbox" checked="checked" name="code">
             <span class="checkmark"></span>
-        </label>
-        <br>
-        <button class="btn btn-outline-success" type="submit">Submit</button>
-    </form>
+          </label>
+          <br>
+        <button class="btn btn-outline-success" type="submit">Update</button>
+        </form>
     {% endblock%}
 </body>
 </html>

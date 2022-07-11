@@ -1,0 +1,47 @@
+{%extends 'base.html'%} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashCards</title>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}customcss/index.css">
+
+</head>
+<body>
+    {%csrf_token%}
+    {%block content%}
+    <form style="margin-top:50px;border:1px dotted rgb(150, 255, 150);padding:25px;border-radius:8px;" class="container col-md-6 col-md-offset-4" action="{% url 'updatecard' id=id%}" method="post">
+        {% csrf_token %}
+        <h2 style="display:block;text-align:center;text-decoration: underline;margin-bottom:10px;">Creat New Card</h2>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Question</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="question" placeholder="Write Question.." style="background-color:white;color:black;border-radius:7px" value="{{form.question.value}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Answer</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="answer" placeholder="Enter you answer">{{form.answer.value}}</textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Tag</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="tag" placeholder="Separate tag using comma(,)" style="background-color:white;color:black;border-radius:7px" value="{{form.tag.value}}">
+        </div>
+        {% if form.choice.value == 0 %}
+        <label class="container">Code
+            <input type="checkbox" checked="checked" name="code">
+            <span class="checkmark"></span>
+        </label>
+        {% else %}
+        <label class="container">Code
+            <input type="checkbox"name="code">
+            <span class="checkmark"></span>
+        </label>
+        {%endif%}
+        <br>
+        <button class="btn btn-outline-success" type="submit">Update</button>
+    </form>
+    {%endblock%}
+</body>
+</html>

@@ -16,15 +16,24 @@
         <div class="question">
             <h3>{{key.question}}</h3>
         </div>
-        <div class="answer" style="margin-top: 50px;">
-            <pre><code>{{ key.answer}}</code></pre>
-        </div>
-        <div class="tag" style="background-color: burlywood;
-        width: 8%;
+        {% if key.choice%}
+            <div class="answer" style="margin-top: 50px;background-color:#746550">
+                    <p>{{ key.answer}}</p>
+            </div>
+        {% else %}
+            <div class="answer" style="margin-top: 50px;background-color:#728595">
+                <pre><code>{{key.answer}}</code></pre>
+            </div>
+        {% endif %}
+        <div class="tag" style="background-color: #5682a7;
+        width: 14%;
         margin: auto;
         border-radius: 16px;">
             <small>{{key.tag}}</small>
         </div>
+        <a href="{%url 'edit' id=key.id%}" class="btn btn-primary" style="position: absolute;
+        top: 2%;
+        right: 2%;">Edit</a>
         <a href="{%url 'delete' id=key.id %}" class="btn btn-primary" style="position: absolute;
         top: 88%;
         left: 46%;">Delete</a>
