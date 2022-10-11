@@ -1,7 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render,HttpResponse
 import random
-
 from django.urls import reverse
 from AppFlashCards.forms import flashcardsform
 from AppFlashCards.models import Data
@@ -42,7 +41,7 @@ def addcard(request):
         model.choice = choice
         model.save()
         db_data = getdata()
-        return redirect("/",{'db_data':db_data})
+        return redirect("/home",{'db_data':db_data})
     return HttpResponseRedirect("Unable to add to database")
 
 def show(request,id):
@@ -106,5 +105,21 @@ def updatecard(request,id):
         model.choice = choice
         model.save()
         db_data = getdata()
-        return redirect("/",{'db_data':db_data})
+        return redirect("/home",{'db_data':db_data})
     return HttpResponseRedirect("Unable to add to database")
+
+def login(request):
+    return render(request,'login.html')
+
+def authenticate(request):
+    if request.method == 'POST':
+        with open("./AppFlashCards/creadentials.txt") as f:
+            uname = f.readline()
+            passw = f.readline()
+        uname = uname.split(':')[1].strip()
+        passw = passw.split(':')[1].strip()
+        print(uname,passw)
+        if(request.POST['username']==uname and request.POST['password']==passw):
+            return redirect("/home")
+        
+        return HttpResponse("Wrong Creadentials")
