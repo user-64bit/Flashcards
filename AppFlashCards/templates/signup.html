@@ -18,7 +18,7 @@
 			<img src="{{STATIC_PREFIX}}media/bg.svg">
 		</div>
 		<div class="login-content">
-			<form method="post" action="{% url 'authenticate'%}">
+			<form method="post" action="{% url 'register' %}">
 				{%csrf_token%}
 				<img src="{{STATIC_PREFIX}}media/avatar.svg">
 				<h2 class="title">Welcome</h2>
@@ -38,8 +38,14 @@
            		    	<input type="password" class="input" placeholder="Password" name="password">
             	   </div>
             	</div>
-            	<a href="#">Forgot Password?</a>
-				<a href="{% url 'signup' %}">Signup</a>
+                <div class="input-div pass">
+                    <div class="i"> 
+                         <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="div">
+                         <input type="password" class="input" placeholder="confirm password" name="confirm_password">
+                 </div>
+              </div>                
             	<input type="submit" class="btn" value="Login">
 				<!-- <a href="{% url 'authenticate'%}" class="btn" style="text-align: center;padding-top: 8px;transition: none;">Login</a> -->
             </form>

@@ -15,5 +15,7 @@ urlpatterns = [
     path('?',views.search,name='search'),
     path('edit/<int:id>',views.edit,name='edit'),
     path('updatecard/<int:id>',views.updatecard,name='updatecard'),
+    path('signup/',views.signup,name='signup'),
+    path('register/',views.register,name='register')
 ]
 handler404 = 'AppFlashCards.views.handler404'

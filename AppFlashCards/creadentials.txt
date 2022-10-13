@@ -1,2 +1,2 @@
-username:arth
-password:password
+username:testuser
+password:pass@123
