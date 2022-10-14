@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login Form</title>
+	<title>Signup Form</title>
 	<link rel="stylesheet" type="text/css" href="{{STATIC_PREFIX}}customcss/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
@@ -46,7 +46,9 @@
                          <input type="password" class="input" placeholder="confirm password" name="confirm_password">
                  </div>
               </div>                
-            	<input type="submit" class="btn" value="Login">
+            	<input type="submit" class="btn" value="Register">
+				<h3 class="title"><a href="{% url 'login' %}">Login</a></h3>
+
 				<!-- <a href="{% url 'authenticate'%}" class="btn" style="text-align: center;padding-top: 8px;transition: none;">Login</a> -->
             </form>
         </div>
