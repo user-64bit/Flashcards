@@ -123,3 +123,21 @@ def authenticate(request):
             return redirect("/home")
         
         return HttpResponse("Wrong Creadentials")
+
+def signup(request):
+    return render(request, 'signup.html')
+
+def register(request):
+    if request.method == 'POST':
+        u_name = request.POST['username']
+        passw = request.POST['password']
+        c_passw = request.POST['confirm_password']
+
+        if passw != c_passw:
+            return HttpResponse("Password did not match with confirm password!")
+        else:
+            u = 'username:'+u_name
+            p = '\npassword:'+passw
+            with open("./AppFlashCards/creadentials.txt","w") as f:
+                f.writelines([u,p])
+            return redirect("/login")
